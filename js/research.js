@@ -25,14 +25,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 const title = entry.TITLE || 'No Title';
                 const journal = entry.JOURNAL || 'No Journal';
                 const year = entry.YEAR || 'No Year';
+                const bibtexKey = entry.BIBTEXKEY || 'UnknownKey';
+                const bibtexRaw = entry.BIBTEXRAW || '';
 
                 console.log('Title:', title);
                 console.log('Authors:', authors);
                 console.log('Journal:', journal);
                 console.log('Year:', year);
-
-                const bibtexRaw = entry.BIBTEXRAW || '';
-
+                console.log('BibTeX Key:', bibtexKey);
                 console.log('BibTeX Entry:', bibtexRaw);
 
                 // Insert a year separator if the year has changed
@@ -61,8 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </details>
                 `;
 
-                
-
+                // Add URL link if present
                 if (entry.URL) {
                     const urlLink = document.createElement('a');
                     urlLink.href = entry.URL;
@@ -71,6 +70,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     urlLink.target = '_blank';
                     article.appendChild(urlLink);
                 }
+
+                // Add PDF download link
+                const pdfLink = document.createElement('a');
+                pdfLink.href = `pdf/${bibtexKey}.pdf`;
+                pdfLink.textContent = 'Download PDF';
+                pdfLink.className = 'text-blue-500 hover:underline mt-2 block';
+                pdfLink.download = `${bibtexKey}.pdf`;
+                article.appendChild(pdfLink);
 
                 articlesContainer.appendChild(article);
 
