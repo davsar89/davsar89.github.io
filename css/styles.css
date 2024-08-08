@@ -25,42 +25,51 @@ footer a:hover {
     max-height: 300px; /* Ensure the container does not exceed the image height */
 }
 
-.year-separator {
-    font-size: 1.5rem; /* Adjust the size as needed */
-    font-weight: bold;
-    margin: 2rem 0 1rem; /* Adjust spacing as needed */
-    text-align: center;
-    color: #2d3748; /* Example color, can be adjusted */
+/* Existing styles */
+
+/* New styles for research entries */
+.article-entry {
+    font-size: 1rem; /* Base font size for consistency */
 }
 
 .article-number {
-    font-weight: normal;
-    font-size: 1.25rem; /* Slightly smaller font size */
-    color: #4A5568; /* Example color, can be adjusted */
+    font-size: 1.1rem;
+    color: #4A5568;
     margin-right: 0.5rem;
 }
 
 .article-title {
-    font-size: 1.0rem; /* Smaller font size for title */
+    font-size: 1.2rem;
     font-weight: bold;
-    margin: 0; /* Remove default margin */
+    margin-bottom: 0.5rem;
 }
 
 .article-authors,
 .article-journal,
-.article-year {
-    font-size: 0.8rem; /* Smaller font size for authors, journal, and year */
+.article-year,
+.article-language {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
 }
 
 .bibtex-entry {
     font-family: monospace;
-    font-size: 0.75rem; /* Smaller font size for BibTeX entry */
-    white-space: pre-wrap; /* Ensure consistent spacing and line breaks */
-    text-align: left; /* Left alignment */
-    background-color: #f7fafc; /* Light background color */
-    padding: 0.5rem; /* Padding for better readability */
-    border-radius: 0.25rem; /* Slightly rounded corners */
-    border: 1px solid #e2e8f0; /* Light border color */
+    font-size: 0.9rem;
+    white-space: pre-wrap;
+    text-align: left;
+    background-color: #f7fafc;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid #e2e8f0;
+    margin-top: 0.5rem;
 }
 
+/* Adjust the year separator */
+.year-separator {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 2rem 0 1rem;
+    text-align: center;
+    color: #2d3748;
+}
 
