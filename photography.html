@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography</title>
+    <style>
+        .photo-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            height: 300px; /* Set a fixed height for the containers */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .photo-container img {
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Maintain aspect ratio without cropping */
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            transition: .5s ease;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .photo-container:hover .overlay {
+            opacity: 1;
+        }
+        .overlay-text {
+            color: white;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <section id="photography" class="py-20 bg-white text-center">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold">Photography</h2>
+
+            <!-- Landscape Subsection -->
+            <h3 class="text-2xl font-semibold mt-10">Landscape</h3>
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="photo-container">
+                    <img src="images/landscape1.jpg" alt="Landscape Photo 1">
+                    <div class="overlay">
+                        <div class="overlay-text">Around Norheimsund, Norway</div>
+                    </div>
+                </div>
+                <div class="photo-container">
+                    <img src="images/landscape2.jpg" alt="Landscape Photo 2">
+                    <div class="overlay">
+                        <div class="overlay-text">Around Norheimsund, Norway</div>
+                    </div>
+                </div>
+                <div class="photo-container">
+                    <img src="images/landscape3.jpg" alt="Landscape Photo 3">
+                    <div class="overlay">
+                        <div class="overlay-text">Around Norheimsund, Norway</div>
+                    </div>
+                </div>
+                <div class="photo-container">
+                    <img src="images/landscape4.jpg" alt="Landscape Photo 4">
+                    <div class="overlay">
+                        <div class="overlay-text">Around Norheimsund, Norway</div>
+                    </div>
+                </div>
+                <div class="photo-container">
+                    <img src="images/landscape5.jpg" alt="Landscape Photo 5">
+                    <div class="overlay">
+                        <div class="overlay-text">Bergen, view from Fløyen</div>
+                    </div>
+                </div>
+                <div class="photo-container">
+                    <img src="images/landscape6.jpg" alt="Landscape Photo 6">
+                    <div class="overlay">
+                        <div class="overlay-text">Fjord cruise, Norway</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Food Subsection -->
+            <h3 class="text-2xl font-semibold mt-10">Food</h3>
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="photo-container">
+                    <img src="images/food1.jpg" alt="Food Photo 1">
+                    <div class="overlay">
+                        <div class="overlay-text">Lutefisk, Bryggeloftet & Stuene Restaurant</div>
+                    </div>
+                </div>
+                <div class="photo-container">
+                    <img src="images/food2.jpg" alt="Food Photo 2">
+                    <div class="overlay">
+                        <div class="overlay-text">Reindeer, Bryggeloftet & Stuene Restaurant</div>
+                    </div>
+                </div>
+                <div class="photo-container">
+                    <img src="images/food3.jpg" alt="Food Photo 3">
+                    <div class="overlay">
+                        <div class="overlay-text">Pizza and Wine @ Via Toledo, Wien</div>
+                    </div>
+                </div>
+                <div class="photo-container">
+                    <img src="images/food4.jpg" alt="Food Photo 4">
+                    <div class="overlay">
+                        <div class="overlay-text">Spinach lasagna</div>
+                    </div>
+                </div>
+                <div class="photo-container">
+                    <img src="images/food5.jpg" alt="Food Photo 5">
+                    <div class="overlay">
+                        <div class="overlay-text">Apple strudel</div>
+                    </div>
+                </div>
+                <div class="photo-container">
+                    <img src="images/food6.jpg" alt="Food Photo 6">
+                    <div class="overlay">
+                        <div class="overlay-text">Whale, Bryggeloftet & Stuene Restaurant</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Animals Subsection -->
+            <h3 class="text-2xl font-semibold mt-10">Animals</h3>
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="photo-container">
+                    <img src="images/animals1.jpg" alt="Animal Photo 1">
+                    <div class="overlay">
+                        <div class="overlay-text">Black bears, Wien Zoo</div>
+                    </div>
+                </div>
+                <div class="photo-container">
+                    <img src="images/animals2.jpg" alt="Animal Photo 2">
+                    <div class="overlay">
+                        <div class="overlay-text">Kitty</div>
+                    </div>
+                </div>
+                <div class="photo-container">
+                    <img src="images/animals3.jpg" alt="Animal Photo 3">
+                    <div class="overlay">
+                        <div class="overlay-text">Sheeps around Norheimsund, Norway</div>
+                    </div>
+                </div>
+                <div class="photo-container">
+                    <img src="images/animals4.jpg" alt="Animal Photo 4">
+                    <div class="overlay">
+                        <div class="overlay-text">Lizard, Wien Zoo</div>
+                    </div>
+                </div>
+                <div class="photo-container">
+                    <img src="images/animals5.jpg" alt="Animal Photo 5">
+                    <div class="overlay">
+                        <div class="overlay-text">Hufsa</div>
+                    </div>
+                </div>
+                <div class="photo-container">
+                    <img src="images/animals6.jpg" alt="Animal Photo 6">
+                    <div class="overlay">
+                        <div class="overlay-text">Polar bear, Wien Zoo</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

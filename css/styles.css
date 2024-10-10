@@ -1,0 +1,75 @@
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+header {
+    background: url('images/header-bg.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+footer a:hover {
+    color: #ffffff;
+}
+
+/* Add this to your styles.css file */
+
+#photography img {
+    max-width: 100%;
+    height: auto;
+    max-height: 300px; /* Adjust this value as needed */
+    display: block;
+    margin: 0 auto;
+}
+
+#photography .overflow-hidden {
+    max-height: 300px; /* Ensure the container does not exceed the image height */
+}
+
+/* Existing styles */
+
+/* New styles for research entries */
+.article-entry {
+    font-size: 1rem; /* Base font size for consistency */
+}
+
+.article-number {
+    font-size: 1.1rem;
+    color: #4A5568;
+    margin-right: 0.5rem;
+}
+
+.article-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.article-authors,
+.article-journal,
+.article-year,
+.article-language {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.bibtex-entry {
+    font-family: monospace;
+    font-size: 0.9rem;
+    white-space: pre-wrap;
+    text-align: left;
+    background-color: #f7fafc;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid #e2e8f0;
+    margin-top: 0.5rem;
+}
+
+/* Adjust the year separator */
+.year-separator {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 2rem 0 1rem;
+    text-align: center;
+    color: #2d3748;
+}
+

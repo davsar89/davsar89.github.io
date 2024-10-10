@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David's Research Hub</title>
+    <link rel="stylesheet" href="css/tailwind.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .header-background {
+            background-image: url('images/background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .fixed-nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        body {
+            padding-top: 70px;
+            /* Adjust based on the height of your nav bar */
+        }
+
+        .codes-section {
+            min-height: 500px;
+            /* Ensure the section is at least 500px tall */
+            padding: 60px 0;
+            /* Increase padding for more space */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased text-gray-900">
+    <nav class="bg-gray-800 p-4 fixed-nav">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-white text-2xl font-bold">⚡</a>
+            <ul class="flex space-x-4">
+                <li><a href="#about" class="text-gray-300 hover:text-white">👤About</a></li>
+                <li><a href="#research" class="text-gray-300 hover:text-white">👨‍🔬Work</a></li>
+                <li><a href="#cv" class="text-gray-300 hover:text-white">💼CV</a></li>
+                <li><a href="#codes" class="text-gray-300 hover:text-white">🖥️Codes</a></li>
+                <li><a href="#photography" class="text-gray-300 hover:text-white">📷Photo.</a></li>
+                <li><a href="#contact" class="text-gray-300 hover:text-white">✉️Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="header-background text-white text-center py-20">
+        <h1 class="text-5xl font-bold text-shadow">Personal Website of David Sarria👤, PhD </h1>
+        <p class="mt-4 text-shadow">researching👨‍🔬 high energy radiation phenomena⚛ associated with thunderstorms🌩️, from air✈️
+            and space🛰️</p>
+    </header>
+
+    <section id="about" class="py-20 bg-white text-left">
+        <div id="about-container"></div>
+    </section>
+
+    <section id="research" class="py-20 bg-gray-100 text-center">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold">Research Articles</h2>
+            <a href="data/research.bib" download="research.bib"
+                class="text-blue-500 hover:underline mt-4 inline-block">Download my BIBTEX file research.bib</a>
+            <div id="articles" class="mt-8">
+                <!-- Research articles will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <section id="cv" class="py-20 bg-white text-left">
+        <div id="cv-container" class="container mx-auto"></div>
+    </section>
+
+    <section id="codes" class="codes-section bg-gray-100 text-center">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold">Codes</h2>
+            <p class="mt-4">See my <a href="https://github.com/davsar89/" class="text-blue-500 hover:underline">GitHub
+                    profile webpage</a> and my <a
+                    href="https://zenodo.org/communities/heap/search?page=1&size=20&sort=publication_date"
+                    class="text-blue-500 hover:underline">Zenodo repositories</a>.</p>
+        </div>
+    </section>
+
+    <section id="photography-section" class="py-20 bg-white text-center">
+        <div id="photography-container" class="container mx-auto"></div>
+    </section>
+
+    <section id="contact" class="py-20 bg-gray-100 text-center">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold">Contact Me</h2>
+            <p class="mt-4">
+                Institute of Physics and Technology (IFT), University of Bergen<br>
+                Allegaten 55, 5007 Bergen, Norway<br>
+                E-mail: <img src="images/email.png" alt="Email Address" class="inline">
+            </p>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-gray-300 py-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 David's Personal Website. All rights reserved.</p>
+            <div class="mt-2">
+                <a href="https://fr.linkedin.com/in/david-sarria-0bb8625a" class="mx-2">LinkedIn</a>
+                <a href="https://www.facebook.com/Djienne/" class="mx-2">Facebook</a>
+                <a href="https://github.com/davsar89/" class="mx-2">GitHub</a>
+                <a href="https://gitlab.com/dsarria" class="mx-2">GitLab</a>
+                <a href="https://www.researchgate.net/profile/David-Sarria" class="mx-2">ResearchGate</a>
+                <a href="https://scholar.google.com/citations?user=26kOsmsAAAAJ&hl=en" class="mx-2">GoogleScholar</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load bibtex_js.js first -->
+    <script src="js/bibtex_js.js"></script>
+    <!-- Load research.js after bibtex_js.js -->
+    <script src="js/research.js"></script>
+    <script src="js/scripts.js"></script>
+    <script>
+        // Load about.html content
+        fetch('about.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('about-container').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading about.html:', error));
+
+        // Load cv.html content
+        fetch('cv.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('cv-container').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading cv.html:', error));
+
+        // Load photography.html content
+        fetch('photography.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('photography-container').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading photography.html:', error));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Articles</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="font-sans antialiased text-gray-900">
+    <nav class="bg-gray-800 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-white text-2xl font-bold">MyWebsite</a>
+            <ul class="flex space-x-4">
+                <li><a href="index.html#about" class="text-gray-300 hover:text-white">About</a></li>
+                <li><a href="index.html#portfolio" class="text-gray-300 hover:text-white">Portfolio</a></li>
+                <li><a href="index.html#contact" class="text-gray-300 hover:text-white">Contact</a></li>
+                <li><a href="research.html" class="text-gray-300 hover:text-white">Research</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="bg-gray-700 text-white text-center py-20">
+        <h1 class="text-5xl font-bold">Research Articles</h1>
+        <p class="mt-4">List of my research publications</p>
+    </header>
+
+    <section id="research" class="py-20 bg-white text-center">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold">Research Articles</h2>
+            <div id="articles" class="mt-8">
+                <!-- Research articles will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-gray-300 py-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 My Professional Website. All rights reserved.</p>
+            <div class="mt-2">
+                <a href="#" class="mx-2">Twitter</a>
+                <a href="#" class="mx-2">LinkedIn</a>
+                <a href="#" class="mx-2">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/bibtexParse.js"></script>
+    <script src="js/research.js"></script>
+</body>
+</html>
