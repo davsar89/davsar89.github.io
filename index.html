@@ -28,17 +28,24 @@
 
         body {
             padding-top: 70px;
-            /* Adjust based on the height of your nav bar */
         }
 
         .codes-section {
             min-height: 500px;
-            /* Ensure the section is at least 500px tall */
             padding: 60px 0;
-            /* Increase padding for more space */
             display: flex;
             flex-direction: column;
             justify-content: center;
+        }
+
+        /* Add styles for visitor counter */
+        #visitor-counter {
+            transition: all 0.3s ease;
+        }
+
+        #visitor-counter:hover {
+            background-color: rgba(75, 85, 99, 0.9);
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -46,7 +53,17 @@
 <body class="font-sans antialiased text-gray-900">
     <nav class="bg-gray-800 p-4 fixed-nav">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="index.html" class="text-white text-2xl font-bold">⚡</a>
+            <div class="flex items-center">
+                <!-- Visitor Counter -->
+                <div id="visitor-counter" class="text-white mr-4 bg-gray-700 px-3 py-1 rounded-full text-sm flex items-center">
+                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                    </svg>
+                    <span id="count">0</span><span class="ml-1">visitors total</span>
+                </div>
+                <a href="index.html" class="text-white text-2xl font-bold">⚡</a>
+            </div>
             <ul class="flex space-x-4">
                 <li><a href="#about" class="text-gray-300 hover:text-white">👤About</a></li>
                 <li><a href="#research" class="text-gray-300 hover:text-white">👨‍🔬Work</a></li>
@@ -127,6 +144,62 @@
     <!-- Load research.js after bibtex_js.js -->
     <script src="js/research.js"></script>
     <script src="js/scripts.js"></script>
+
+    <!-- Visitor Counter Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Try to get the stored count from localStorage
+            let visitorCount = localStorage.getItem('visitorCount');
+            
+            // Check if this is a new visitor
+            if (!visitorCount) {
+                visitorCount = 1;
+            } else {
+                visitorCount = parseInt(visitorCount) + 1;
+            }
+            
+            // Store the updated count
+            localStorage.setItem('visitorCount', visitorCount);
+            
+            // Update the display with animation
+            const countElement = document.getElementById('count');
+            countElement.textContent = '0';
+            
+            // Animate the counter
+            let currentCount = 0;
+            const duration = 1000; // 1 second animation
+            const interval = 50; // Update every 50ms
+            const steps = duration / interval;
+            const increment = visitorCount / steps;
+            
+            const counter = setInterval(() => {
+                currentCount += increment;
+                if (currentCount >= visitorCount) {
+                    currentCount = visitorCount;
+                    clearInterval(counter);
+                }
+                countElement.textContent = Math.floor(currentCount);
+            }, interval);
+            
+            // Optional: Send count to server
+            updateServerCount();
+        });
+
+        function updateServerCount() {
+            // Replace with your actual server endpoint
+            fetch('/api/visitor-count', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    timestamp: new Date().toISOString()
+                })
+            }).catch(error => console.log('Error updating visitor count:', error));
+        }
+    </script>
+
+    <!-- Content Loading Scripts -->
     <script>
         // Load about.html content
         fetch('about.html')
