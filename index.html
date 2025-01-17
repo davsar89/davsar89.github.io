@@ -57,12 +57,13 @@
                 <!-- Visitor Counter -->
                 <div id="visitor-counter" class="text-white mr-4 bg-gray-700 px-3 py-1 rounded-full text-sm flex items-center">
                     <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
-                        </path>
+                              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7
+                                 -1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
                     </svg>
-                    <span id="count">0</span>
+                    <span id="visits">0</span>
                     <span class="ml-1">visitors total</span>
                 </div>
                 <a href="index.html" class="text-white text-2xl font-bold">⚡</a>
@@ -79,9 +80,9 @@
     </nav>
 
     <header class="header-background text-white text-center py-20">
-        <h1 class="text-5xl font-bold text-shadow">Personal Website of David Sarria👤, PhD </h1>
-        <p class="mt-4 text-shadow">researching👨‍🔬 high energy radiation phenomena⚛ associated with thunderstorms🌩️, from air✈️
-            and space🛰️</p>
+        <h1 class="text-5xl font-bold text-shadow">Personal Website of David Sarria👤, PhD</h1>
+        <p class="mt-4 text-shadow">researching👨‍🔬 high energy radiation phenomena⚛ associated with thunderstorms🌩️, 
+           from air✈️ and space🛰️</p>
     </header>
 
     <section id="about" class="py-20 bg-white text-left">
@@ -92,7 +93,9 @@
         <div class="container mx-auto">
             <h2 class="text-3xl font-bold">Research Articles</h2>
             <a href="data/research.bib" download="research.bib"
-                class="text-blue-500 hover:underline mt-4 inline-block">Download my BIBTEX file research.bib</a>
+               class="text-blue-500 hover:underline mt-4 inline-block">
+                Download my BIBTEX file research.bib
+            </a>
             <div id="articles" class="mt-8">
                 <!-- Research articles will be loaded here -->
             </div>
@@ -106,10 +109,12 @@
     <section id="codes" class="codes-section bg-gray-100 text-center">
         <div class="container mx-auto">
             <h2 class="text-3xl font-bold">Codes</h2>
-            <p class="mt-4">See my <a href="https://github.com/davsar89/" class="text-blue-500 hover:underline">GitHub
-                    profile webpage</a> and my <a
-                    href="https://zenodo.org/communities/heap/search?page=1&size=20&sort=publication_date"
-                    class="text-blue-500 hover:underline">Zenodo repositories</a>.</p>
+            <p class="mt-4">
+                See my <a href="https://github.com/davsar89/" 
+                           class="text-blue-500 hover:underline">GitHub profile webpage</a> 
+                and my <a href="https://zenodo.org/communities/heap/search?page=1&size=20&sort=publication_date" 
+                          class="text-blue-500 hover:underline">Zenodo repositories</a>.
+            </p>
         </div>
     </section>
 
@@ -148,19 +153,20 @@
     <script src="js/research.js"></script>
     <script src="js/scripts.js"></script>
 
-    <!-- CountAPI Visitor Counter (replaces localStorage script) -->
+    <!-- CountAPI Visitor Counter -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const countElement = document.getElementById('count');
+            const countElement = document.getElementById('visits');
+
             // Optional: show a loading indicator while we fetch
             countElement.textContent = '...';
 
-            // Use a unique namespace and key (e.g., your GitHub pages domain + "global-visits")
-            // This call increments the global counter and returns the updated value.
-            fetch('https://api.countapi.xyz/hit/davsar89.github.io/globalvisits')
+            // 1) Replace 'mysite.com' and 'visits' with your own unique namespace/key.
+            // 2) The 'hit' endpoint automatically increments the counter by 1 each time the page loads.
+            fetch('https://api.countapi.xyz/hit/davsar89.github.io/global-counter')
                 .then(response => response.json())
                 .then(data => {
-                    // data.value is the updated total
+                    // 'data.value' is the updated total
                     countElement.textContent = data.value;
                 })
                 .catch(error => {
