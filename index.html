@@ -58,9 +58,12 @@
                 <div id="visitor-counter" class="text-white mr-4 bg-gray-700 px-3 py-1 rounded-full text-sm flex items-center">
                     <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
+                        </path>
                     </svg>
-                    <span id="count">0</span><span class="ml-1">visitors total</span>
+                    <span id="count">0</span>
+                    <span class="ml-1">visitors total</span>
                 </div>
                 <a href="index.html" class="text-white text-2xl font-bold">⚡</a>
             </div>
@@ -145,58 +148,26 @@
     <script src="js/research.js"></script>
     <script src="js/scripts.js"></script>
 
-    <!-- Visitor Counter Script -->
+    <!-- CountAPI Visitor Counter (replaces localStorage script) -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Try to get the stored count from localStorage
-            let visitorCount = localStorage.getItem('visitorCount');
-            
-            // Check if this is a new visitor
-            if (!visitorCount) {
-                visitorCount = 1;
-            } else {
-                visitorCount = parseInt(visitorCount) + 1;
-            }
-            
-            // Store the updated count
-            localStorage.setItem('visitorCount', visitorCount);
-            
-            // Update the display with animation
             const countElement = document.getElementById('count');
-            countElement.textContent = '0';
-            
-            // Animate the counter
-            let currentCount = 0;
-            const duration = 1000; // 1 second animation
-            const interval = 50; // Update every 50ms
-            const steps = duration / interval;
-            const increment = visitorCount / steps;
-            
-            const counter = setInterval(() => {
-                currentCount += increment;
-                if (currentCount >= visitorCount) {
-                    currentCount = visitorCount;
-                    clearInterval(counter);
-                }
-                countElement.textContent = Math.floor(currentCount);
-            }, interval);
-            
-            // Optional: Send count to server
-            updateServerCount();
-        });
+            // Optional: show a loading indicator while we fetch
+            countElement.textContent = '...';
 
-        function updateServerCount() {
-            // Replace with your actual server endpoint
-            fetch('/api/visitor-count', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    timestamp: new Date().toISOString()
+            // Use a unique namespace and key (e.g., your GitHub pages domain + "global-visits")
+            // This call increments the global counter and returns the updated value.
+            fetch('https://api.countapi.xyz/hit/davsar89.github.io/globalvisits')
+                .then(response => response.json())
+                .then(data => {
+                    // data.value is the updated total
+                    countElement.textContent = data.value;
                 })
-            }).catch(error => console.log('Error updating visitor count:', error));
-        }
+                .catch(error => {
+                    console.error('Error fetching CountAPI:', error);
+                    countElement.textContent = 'Error';
+                });
+        });
     </script>
 
     <!-- Content Loading Scripts -->
