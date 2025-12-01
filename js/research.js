@@ -6,6 +6,20 @@ document.addEventListener('DOMContentLoaded', function() {
             bibtex.setInput(data);
             bibtex.bibtex();
             const entries = bibtex.getEntries();
+            const cartoonExists = (path) => fetch(path, { method: 'HEAD' })
+                .then(response => response.ok)
+                .catch(() => false);
+            const findCartoon = async (baseName) => {
+                if (!baseName) return null;
+                const candidates = Array.from(new Set([baseName, baseName.toLowerCase()]));
+                for (const candidate of candidates) {
+                    const path = `cartoons/${candidate}.jpg`;
+                    if (await cartoonExists(path)) {
+                        return { path, idBase: candidate };
+                    }
+                }
+                return null;
+            };
 
             console.log('Parsed entries:', entries);
 
@@ -43,6 +57,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 const bibtexKey = entry.BIBTEXKEY || 'UnknownKey';
                 const bibtexRaw = entry.BIBTEXRAW || '';
                 const articleUrl = entry.URL || (entry.DOI ? `https://doi.org/${entry.DOI}` : null);
+                const pdfFileName = entry.IS_MASTERS_THESIS ? entry.URL : `pdf/${bibtexKey}.pdf`;
+                const pdfBaseName = pdfFileName ? pdfFileName.split('/').pop().replace(/\.pdf$/i, '') : null;
+                const baseNameFromUrl = entry.URL ? entry.URL.split('/').pop().replace(/\.[^/.]+$/, '') : null;
+                const cartoonBase = entry.BIBTEXKEY || pdfBaseName || baseNameFromUrl;
 
                 // Identify if this is the PhD thesis
                 const isPhDThesis = title.toLowerCase().includes('modele monte carlo');
@@ -102,6 +120,31 @@ document.addEventListener('DOMContentLoaded', function() {
                     pdfLink.className = 'text-blue-500 hover:underline mt-2 block';
                     pdfLink.download = entry.IS_MASTERS_THESIS ? 'Masters_thesis_SARRIA_DAVID_irap.pdf' : `${bibtexKey}.pdf`;
                     article.appendChild(pdfLink);
+                }
+
+                // Add cartoon link if a matching image exists
+                if (cartoonBase) {
+                    findCartoon(cartoonBase).then((cartoon) => {
+                        if (!cartoon) return;
+                        const cartoonHash = `cartoon-${cartoon.idBase}`;
+                        const cartoonsSectionExists = document.getElementById('cartoons');
+                        const cartoonHref = cartoonsSectionExists
+                            ? `#${cartoonHash}`
+                            : `index.html#${cartoonHash}`;
+
+                        const cartoonLink = document.createElement('a');
+                        cartoonLink.href = cartoonHref;
+                        cartoonLink.textContent = 'View cartoon';
+                        cartoonLink.className = 'text-blue-500 hover:underline mt-2 block';
+                        cartoonLink.addEventListener('click', (event) => {
+                            const targetEl = document.getElementById(cartoonHash);
+                            if (targetEl) {
+                                event.preventDefault();
+                                targetEl.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        });
+                        article.appendChild(cartoonLink);
+                    });
                 }
 
                 // Add slides download link for master's thesis
