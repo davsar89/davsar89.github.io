@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const year = entry.YEAR || 'No Year';
                 const bibtexKey = entry.BIBTEXKEY || 'UnknownKey';
                 const bibtexRaw = entry.BIBTEXRAW || '';
+                const articleUrl = entry.URL || (entry.DOI ? `https://doi.org/${entry.DOI}` : null);
 
                 // Identify if this is the PhD thesis
                 const isPhDThesis = title.toLowerCase().includes('modele monte carlo');
@@ -83,10 +84,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 article.innerHTML = articleContent;
 
-                // Add URL link if present and not the master's thesis
-                if (entry.URL && !entry.IS_MASTERS_THESIS) {
+                // Add URL link if present (use DOI when URL missing) and not the master's thesis
+                if (articleUrl && !entry.IS_MASTERS_THESIS) {
                     const urlLink = document.createElement('a');
-                    urlLink.href = entry.URL;
+                    urlLink.href = articleUrl;
                     urlLink.textContent = 'Read the full article';
                     urlLink.className = 'text-blue-500 hover:underline mt-2 inline-block';
                     urlLink.target = '_blank';
