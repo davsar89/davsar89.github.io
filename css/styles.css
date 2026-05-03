@@ -1303,6 +1303,203 @@ footer a:hover {
 }
 
 /* =========================================================================
+   Mobile refinements (phones, narrow tablets)
+   ========================================================================= */
+
+@media (max-width: 640px) {
+    /* Tighter section padding */
+    section.py-20,
+    section.codes-section {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    /* Hide visitor counter on phones (too cramped with brand + hamburger) */
+    #visitor-counter {
+        display: none;
+    }
+
+    /* Brand shrinks slightly */
+    .brand {
+        font-size: 1rem;
+    }
+
+    .brand-spark {
+        font-size: 1.1rem;
+    }
+
+    /* Hero compresses */
+    .hero {
+        min-height: 56vh;
+    }
+
+    .hero-content {
+        padding: var(--space-12) var(--space-4);
+    }
+
+    .hero-eyebrow {
+        font-size: 0.7rem;
+        letter-spacing: 0.18em;
+        margin-bottom: var(--space-4);
+    }
+
+    .hero-title {
+        font-size: 1.85rem;
+        margin-bottom: var(--space-4);
+    }
+
+    .hero-tagline {
+        font-size: 0.95rem;
+        margin: 0 auto var(--space-6);
+    }
+
+    .hero-cta {
+        margin-top: var(--space-6);
+    }
+
+    .btn {
+        padding: 0.6rem 1.25rem;
+        font-size: 0.9rem;
+    }
+
+    /* Section titles smaller */
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .section-title::after {
+        margin-top: var(--space-3);
+    }
+
+    /* About prose tighter */
+    .prose-cosmic {
+        margin-top: var(--space-8) !important;
+    }
+
+    .prose-cosmic p {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .prose-cosmic p:first-of-type {
+        font-size: 1.05rem;
+    }
+
+    /* CV body tighter indent */
+    .cv-body {
+        padding-left: var(--space-6);
+    }
+
+    .cv-body::before {
+        left: 7px;
+    }
+
+    .cv-body h4 {
+        margin-left: calc(-1 * var(--space-6));
+        padding-left: var(--space-6);
+        font-size: 1.05rem;
+        margin-top: var(--space-6) !important;
+    }
+
+    .cv-body h4::before {
+        left: 1px;
+        top: 0.55em;
+        width: 11px;
+        height: 11px;
+    }
+
+    .cv-body ul li {
+        padding-left: var(--space-4);
+    }
+
+    /* Article entries tighter */
+    .article-entry {
+        padding: var(--space-4);
+    }
+
+    .article-title {
+        font-size: 1.05rem;
+    }
+
+    .article-number {
+        font-size: 0.85rem;
+    }
+
+    /* Research controls stack vertically */
+    .research-controls {
+        flex-direction: column;
+        align-items: stretch;
+        border-radius: var(--radius-md);
+        gap: var(--space-2);
+        padding: var(--space-3);
+    }
+
+    .pub-search,
+    .pub-year {
+        width: 100%;
+        text-align: center;
+    }
+
+    .pub-count {
+        text-align: center;
+        padding: var(--space-1) 0;
+    }
+
+    /* Year separator quieter */
+    .year-separator {
+        margin-top: var(--space-8);
+    }
+
+    /* Cartoon grid */
+    .cartoon-frame {
+        height: 200px;
+    }
+
+    /* Lightbox: keep close button inside the frame */
+    .image-lightbox-content {
+        padding: var(--space-3);
+        max-height: 92vh;
+    }
+
+    .image-lightbox-content img {
+        max-height: 65vh;
+    }
+
+    .image-lightbox-close {
+        top: 6px;
+        right: 6px;
+        width: 32px;
+        height: 32px;
+        font-size: 1.1rem;
+    }
+
+    /* Footer social links wrap cleanly */
+    footer > div > div:first-child {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.4rem 0.9rem;
+    }
+
+    footer > div > div:first-child a {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    /* Photo gallery h3 smaller */
+    #photography h3 {
+        font-size: 1.2rem;
+        margin-top: var(--space-8);
+    }
+
+    /* Email image scales down to fit narrow line */
+    #contact img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* =========================================================================
    Reduced motion
    ========================================================================= */
 
