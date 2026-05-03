@@ -4,10 +4,34 @@
    - Publication search/filter
    - Photo lightbox (uses window.__lightbox from cartoons.js)
    - Nav scroll shadow + active link
+   - Age computation for [data-age-from="YYYY-MM-DD"] elements
    ========================================================================= */
 
 (function () {
     const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // ----- Age computation -----
+    function computeAge(birthdateStr) {
+        const [y, m, d] = birthdateStr.split('-').map(Number);
+        const now = new Date();
+        let age = now.getFullYear() - y;
+        const mDiff = (now.getMonth() + 1) - m;
+        if (mDiff < 0 || (mDiff === 0 && now.getDate() < d)) {
+            age--;
+        }
+        return age;
+    }
+
+    function updateAges(root) {
+        (root || document).querySelectorAll('[data-age-from]').forEach(el => {
+            const birthdate = el.getAttribute('data-age-from');
+            if (!birthdate) return;
+            const age = computeAge(birthdate);
+            if (Number.isFinite(age) && age >= 0) {
+                el.textContent = age;
+            }
+        });
+    }
 
     // ----- Scroll reveal -----
     let revealObserver = null;
@@ -164,6 +188,7 @@
     document.addEventListener('DOMContentLoaded', () => {
         observeReveals();
         initNav();
+        updateAges();
     });
 
     document.addEventListener('publications:rendered', () => {
@@ -177,6 +202,7 @@
 
     document.addEventListener('fragment:loaded', (e) => {
         observeReveals();
+        updateAges();
         if (e.detail && e.detail.name === 'photography') {
             initPhotoLightbox();
         }
