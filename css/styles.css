@@ -208,16 +208,23 @@ a:hover {
     background: var(--border-soft);
 }
 
-#visitor-counter {
-    background: var(--surface-2);
-    border: 1px solid var(--border-soft);
-    color: var(--text-secondary);
-    transition: border-color var(--dur-fast) var(--ease-out);
+.visit-badge {
+    display: inline-flex;
+    align-items: center;
+    line-height: 0;
+    opacity: 0.85;
+    transition: opacity var(--dur-fast) var(--ease-out);
+    border-radius: 4px;
 }
 
-#visitor-counter:hover {
-    border-color: var(--accent);
-    color: var(--text-primary);
+.visit-badge:hover {
+    opacity: 1;
+    text-decoration: none;
+}
+
+.visit-badge img {
+    height: 20px;
+    display: block;
 }
 
 /* =========================================================================
@@ -1315,7 +1322,7 @@ footer a:hover {
     }
 
     /* Hide visitor counter on phones (too cramped with brand + hamburger) */
-    #visitor-counter {
+    .visit-badge {
         display: none;
     }
 
