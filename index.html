@@ -4,149 +4,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>David's Research Hub</title>
+    <meta name="description" content="Personal website of D. Sarria, PhD. Researcher in High Energy Atmospheric Physics at the University of Bergen. Terrestrial Gamma-Ray Flashes, gamma-ray glows, and the violent physics of thunderstorms.">
+    <title>Personal website of D. Sarria, PhD</title>
     <link rel="stylesheet" href="css/tailwind.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
-    <style>
-        .header-background {
-            background-image: url('images/background.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        .text-shadow {
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-        }
-
-        .fixed-nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-
-        body {
-            padding-top: 70px;
-        }
-
-        .codes-section {
-            min-height: 500px;
-            padding: 60px 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        /* Add styles for visitor counter */
-        #visitor-counter {
-            transition: all 0.3s ease;
-        }
-
-        #visitor-counter:hover {
-            background-color: rgba(75, 85, 99, 0.9);
-            transform: scale(1.05);
-        }
-    </style>
 </head>
 
-<body class="font-sans antialiased text-gray-900">
-    <nav class="bg-gray-800 p-4 fixed-nav">
+<body class="antialiased">
+    <a href="#about" class="skip-link">Skip to content</a>
+
+    <nav class="fixed-nav p-4">
         <div class="container mx-auto px-4 flex flex-wrap items-center justify-between">
             <div class="flex items-center">
-                <!-- Visitor Counter with Hits.sh Badge -->
-                <div id="visitor-counter" class="text-white mr-4 bg-gray-700 px-3 py-1 rounded-full text-sm flex items-center shadow-md">
-                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7 
-                                 -1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                <div id="visitor-counter" class="mr-4 px-3 py-1 rounded-full text-sm flex items-center">
+                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7 -1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
                     </svg>
-                    <img src="https://hits.sh/davsar89.github.io.svg?style=flat-square&label=Visitors:&labelColor=374151&color=374151" alt="Visitors Count" />
+                    <img src="https://hits.sh/davsar89.github.io.svg?style=flat-square&label=Visitors:&labelColor=4b5563&color=2c3aa5" alt="Visitors Count" />
                 </div>
-                <a href="index.html" class="text-white text-2xl font-bold mr-2">⚡</a>
-                <button id="nav-toggle" class="text-white md:hidden bg-gray-700 px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" aria-label="Toggle navigation">
+                <div class="brand">
+                    <span class="brand-spark" aria-hidden="true">⚡</span>
+                    <span>D. Sarria, PhD</span>
+                </div>
+                <button id="nav-toggle" class="md:hidden ml-3 px-3 py-2 rounded focus:outline-none" aria-label="Toggle navigation">
                     ☰
                 </button>
             </div>
-            <ul id="nav-menu" class="hidden md:flex md:flex-row md:space-x-4 w-full md:w-auto flex-col md:flex-nowrap space-y-2 md:space-y-0 mt-4 md:mt-0">
-                <li><a href="#about" class="text-gray-300 hover:text-white block">👤 About</a></li>
-                <li><a href="#research" class="text-gray-300 hover:text-white block">👨‍🔬 Work</a></li>
-                <li><a href="#cv" class="text-gray-300 hover:text-white block">💼 CV</a></li>
-                <li><a href="#codes" class="text-gray-300 hover:text-white block">🖥️ Codes</a></li>
-                <li><a href="#photography" class="text-gray-300 hover:text-white block">📷 Photo.</a></li>
-                <li><a href="#cartoons" class="text-gray-300 hover:text-white block">🎨 Cartoons</a></li>
-                <li><a href="#contact" class="text-gray-300 hover:text-white block">✉️ Contact</a></li>
+            <ul id="nav-menu" class="hidden md:flex md:flex-row md:space-x-2 w-full md:w-auto flex-col md:flex-nowrap space-y-2 md:space-y-0 mt-4 md:mt-0">
+                <li><a href="#about" class="block">About</a></li>
+                <li><a href="#research" class="block">Work</a></li>
+                <li><a href="#cv" class="block">CV</a></li>
+                <li><a href="#codes" class="block">Codes</a></li>
+                <li><a href="#photography" class="block">Photo</a></li>
+                <li><a href="#cartoons" class="block">Cartoons</a></li>
+                <li><a href="#contact" class="block">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <header class="header-background text-white text-center py-20">
-        <div class="container mx-auto px-4">
-            <h1 class="text-5xl font-bold text-shadow">Personal Website of David Sarria👤, PhD</h1>
-            <p class="mt-4 text-shadow">
-                researching👨‍🔬 high energy radiation phenomena⚛ associated with thunderstorms🌩️, from air✈️ and space🛰️
+    <header class="hero">
+        <div class="hero-content container mx-auto">
+            <p class="hero-eyebrow">Personal website of</p>
+            <h1 class="hero-title"><span class="hero-name">D. Sarria, PhD</span></h1>
+            <p class="hero-tagline">
+                Researcher in High Energy Atmospheric Physics at the University of Bergen. Chasing gamma rays through thunderstorms, from satellites, aircraft, and code.
             </p>
+            <div class="hero-cta">
+                <a href="#research" class="btn btn-primary">Publications</a>
+                <a href="#about" class="btn btn-ghost">About me</a>
+            </div>
         </div>
+        <div class="hero-fade" aria-hidden="true"></div>
     </header>
 
-    <section id="about" class="py-20 bg-white text-left">
-        <div id="about-container"></div>
+    <section id="about" class="py-20 section-night text-left">
+        <div id="about-container" class="reveal"></div>
     </section>
 
-    <section id="research" class="py-20 bg-gray-100 text-center">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-bold">Research Articles</h2>
-            <a href="data/research.bib" download="research.bib"
-               class="text-blue-500 hover:underline mt-4 inline-block">
-                Download my BIBTEX file research.bib
-            </a>
+    <section id="research" class="py-20 section-storm text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title reveal">Research Articles</h2>
+            <div class="reveal">
+                <div class="research-controls">
+                    <input type="search" id="pub-search" class="pub-search" placeholder="Search title, author, journal…" aria-label="Search publications">
+                    <select id="pub-year" class="pub-year" aria-label="Filter by year">
+                        <option value="">All years</option>
+                    </select>
+                    <span class="pub-count" id="pub-count" aria-live="polite"></span>
+                </div>
+                <a href="data/research.bib" download="research.bib" class="bib-link">
+                    Download BibTeX file
+                </a>
+            </div>
             <div id="articles" class="mt-8">
-                <!-- Research articles will be loaded here -->
+                <!-- Research articles loaded by research.js -->
             </div>
         </div>
     </section>
 
-    <section id="cv" class="py-20 bg-white text-left">
-        <div id="cv-container" class="container mx-auto"></div>
+    <section id="cv" class="py-20 section-night text-left">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title reveal" style="margin-left: var(--space-4);">Curriculum Vitae</h2>
+            <div id="cv-container" class="reveal"></div>
+        </div>
     </section>
 
-    <section id="codes" class="codes-section bg-gray-100 text-center">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-bold">Codes</h2>
-            <p class="mt-4">
-                See my 
-                <a href="https://github.com/davsar89/" 
-                   class="text-blue-500 hover:underline">
-                   GitHub profile webpage
-                </a> 
-                and my 
-                <a href="https://zenodo.org/communities/heap/search?page=1&size=20&sort=publication_date" 
-                   class="text-blue-500 hover:underline">
-                   Zenodo repositories
-                </a>.
+    <section id="codes" class="codes-section section-storm text-center">
+        <div class="container mx-auto px-4 reveal">
+            <h2 class="section-title">Codes</h2>
+            <p class="mt-6">
+                See my
+                <a href="https://github.com/davsar89/">GitHub profile</a>
+                and my
+                <a href="https://zenodo.org/communities/heap/search?page=1&size=20&sort=publication_date">Zenodo repositories</a>.
             </p>
         </div>
     </section>
 
-    <section id="photography-section" class="py-20 bg-white text-center">
-        <div id="photography-container" class="container mx-auto"></div>
-    </section>
-
-    <section id="cartoons" class="py-20 bg-gray-50 text-center">
+    <section id="photography" class="py-20 section-night text-center">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold">Cartoons</h2>
-            <p class="mt-4 text-gray-600">Illustrations created for the research articles.</p>
-            <div id="cartoons-grid" class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-            <p id="cartoons-empty" class="text-gray-500 mt-4 hidden">No cartoons available yet.</p>
+            <h2 class="section-title reveal">Photography</h2>
+            <div id="photography-container" class="reveal"></div>
         </div>
     </section>
 
-    <section id="contact" class="py-20 bg-gray-100 text-center">
+    <section id="cartoons" class="py-20 section-storm text-center">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold">Contact Me</h2>
-            <p class="mt-4">
+            <h2 class="section-title reveal">Cartoons</h2>
+            <p class="mt-4 reveal">Illustrations created for the research articles.</p>
+            <div id="cartoons-grid" class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+            <p id="cartoons-empty" class="mt-4 hidden">No cartoons available yet.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 section-night text-center">
+        <div class="container mx-auto px-4 reveal">
+            <h2 class="section-title">Contact</h2>
+            <p class="mt-6">
                 Institute of Physics and Technology (IFT), University of Bergen<br>
                 Allegaten 55, 5007 Bergen, Norway<br>
                 E-mail: <img src="images/email.png" alt="Email Address" class="inline">
@@ -154,63 +132,51 @@
         </div>
     </section>
 
-    <footer class="bg-gray-800 text-gray-300 py-4">
-        <div class="container mx-auto text-center">
-            <p>&copy; 2024 David's Personal Website. All rights reserved.</p>
-            <div class="mt-2">
+    <footer>
+        <div class="container mx-auto text-center px-4">
+            <div>
                 <a href="https://fr.linkedin.com/in/david-sarria-0bb8625a" class="mx-2">LinkedIn</a>
                 <a href="https://www.facebook.com/Djienne/" class="mx-2">Facebook</a>
                 <a href="https://github.com/davsar89/" class="mx-2">GitHub</a>
                 <a href="https://gitlab.com/dsarria" class="mx-2">GitLab</a>
                 <a href="https://www.researchgate.net/profile/David-Sarria" class="mx-2">ResearchGate</a>
-                <a href="https://scholar.google.com/citations?user=26kOsmsAAAAJ&hl=en" class="mx-2">GoogleScholar</a>
+                <a href="https://scholar.google.com/citations?user=26kOsmsAAAAJ&hl=en" class="mx-2">Google Scholar</a>
             </div>
+            <p class="mt-4">&copy; 2026 David Sarria. All rights reserved.</p>
+            <p class="footer-tagline">Built with static HTML on GitHub Pages.</p>
         </div>
     </footer>
 
-    <!-- Load bibtex_js.js first -->
     <script src="js/bibtex_js.js"></script>
-    <!-- Load research.js after bibtex_js.js -->
     <script src="js/research.js"></script>
     <script src="js/cartoons.js"></script>
     <script src="js/scripts.js"></script>
 
-    <!-- Content Loading Scripts -->
     <script>
-        // Load about.html content
-        fetch('about.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('about-container').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading about.html:', error));
+        // Load fragments and dispatch events for downstream wiring
+        function loadFragment(url, targetId, name) {
+            return fetch(url)
+                .then(r => r.text())
+                .then(html => {
+                    const el = document.getElementById(targetId);
+                    if (el) el.innerHTML = html;
+                    document.dispatchEvent(new CustomEvent('fragment:loaded', { detail: { name } }));
+                })
+                .catch(err => console.error('Error loading', url, err));
+        }
 
-        // Load cv.html content
-        fetch('cv.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('cv-container').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading cv.html:', error));
-
-        // Load photography.html content
-        fetch('photography.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('photography-container').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading photography.html:', error));
+        loadFragment('about.html', 'about-container', 'about');
+        loadFragment('cv.html', 'cv-container', 'cv');
+        loadFragment('photography.html', 'photography-container', 'photography');
 
         // Mobile nav toggle
         const navToggle = document.getElementById('nav-toggle');
         const navMenu = document.getElementById('nav-menu');
         if (navToggle && navMenu) {
-            navToggle.addEventListener('click', () => {
-                navMenu.classList.toggle('hidden');
-            });
+            navToggle.addEventListener('click', () => navMenu.classList.toggle('hidden'));
             navMenu.querySelectorAll('a').forEach((link) => {
                 link.addEventListener('click', () => {
-                    if (!navMenu.classList.contains('hidden')) {
+                    if (window.innerWidth < 768 && !navMenu.classList.contains('hidden')) {
                         navMenu.classList.add('hidden');
                     }
                 });
