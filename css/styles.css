@@ -240,8 +240,49 @@ a:hover {
     overflow: hidden;
     margin-top: -70px;
     padding-top: 70px;
-    background: var(--bg-base);
+    background-color: var(--bg-base);
+    background-image: radial-gradient(circle, rgba(44, 58, 165, 0.07) 1px, transparent 1.2px);
+    background-size: 22px 22px;
+    background-position: 0 0;
     border-bottom: 1px solid var(--border-soft);
+}
+
+/* Faint lightning glyph behind the hero headline */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: clamp(180px, 26vw, 320px);
+    aspect-ratio: 3 / 5;
+    transform: translate(-50%, -50%);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 100' fill='none' stroke='%232c3aa5' stroke-width='2' stroke-linejoin='round' stroke-linecap='round'><path d='M38 4 L10 54 L28 54 L18 96 L54 44 L34 44 Z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Faint plane (left) + satellite (right) flanking the lightning glyph */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(1180px, 96%);
+    height: clamp(140px, 22vw, 220px);
+    background-image:
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='%232c3aa5' stroke-width='2' stroke-linejoin='round' stroke-linecap='round'><path d='M50 5 L45 35 L5 55 L5 63 L45 50 L43 75 L33 82 L33 88 L50 82 L67 88 L67 82 L57 75 L55 50 L95 63 L95 55 L55 35 Z'/></svg>"),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60' fill='none' stroke='%232c3aa5' stroke-width='2' stroke-linejoin='round' stroke-linecap='round'><rect x='50' y='22' width='20' height='20'/><rect x='8' y='26' width='38' height='12'/><line x1='20' y1='26' x2='20' y2='38'/><line x1='33' y1='26' x2='33' y2='38'/><rect x='74' y='26' width='38' height='12'/><line x1='86' y1='26' x2='86' y2='38'/><line x1='99' y1='26' x2='99' y2='38'/><line x1='60' y1='22' x2='60' y2='8'/><circle cx='60' cy='6' r='2'/></svg>");
+    background-repeat: no-repeat, no-repeat;
+    background-position: 3% center, 97% center;
+    background-size: clamp(80px, 13vw, 150px) auto, clamp(110px, 18vw, 200px) auto;
+    opacity: 0.07;
+    pointer-events: none;
+    z-index: 0;
 }
 
 .hero-content {
@@ -1338,6 +1379,16 @@ footer a:hover {
     /* Hero compresses */
     .hero {
         min-height: 56vh;
+        background-size: 18px 18px;
+    }
+
+    .hero::before {
+        width: clamp(120px, 32vw, 180px);
+        opacity: 0.05;
+    }
+
+    .hero::after {
+        display: none;
     }
 
     .hero-content {
