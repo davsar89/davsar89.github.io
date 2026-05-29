@@ -639,7 +639,7 @@ section .text-gray-500 {
 }
 
 .cv-body h2 {
-    margin-left: -var(--space-8);
+    margin-left: calc(-1 * var(--space-8));
     padding-left: var(--space-8);
     margin-bottom: var(--space-6);
 }
@@ -735,7 +735,7 @@ section .text-gray-500 {
 .cv-updated {
     margin-top: var(--space-6);
     font-size: .78rem;
-    color: var(--text-tertiary);
+    color: var(--text-muted);
     text-align: right;
     font-style: italic;
 }
