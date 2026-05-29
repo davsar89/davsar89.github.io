@@ -162,7 +162,11 @@ a:hover {
     display: inline-flex;
     align-items: center;
     gap: var(--space-2);
-    cursor: default;
+}
+
+.brand:hover {
+    color: var(--text-primary);
+    text-decoration: none;
 }
 
 .brand-spark {
@@ -312,14 +316,6 @@ a:hover {
     color: var(--text-primary);
 }
 
-.hero-title .hero-name {
-    color: var(--text-primary);
-    background: none;
-    -webkit-background-clip: initial;
-    background-clip: initial;
-    -webkit-text-fill-color: var(--text-primary);
-}
-
 .hero-tagline {
     font-family: var(--font-body);
     font-size: clamp(1rem, 1.5vw, 1.2rem);
@@ -335,10 +331,6 @@ a:hover {
     justify-content: center;
     flex-wrap: wrap;
     margin-top: var(--space-8);
-}
-
-.hero-fade {
-    display: none;
 }
 
 /* =========================================================================
@@ -410,10 +402,6 @@ a:hover {
     font-weight: 700;
     letter-spacing: -0.015em;
     color: var(--text-primary);
-    background: none;
-    -webkit-background-clip: initial;
-    background-clip: initial;
-    -webkit-text-fill-color: var(--text-primary);
     display: inline-block;
     margin-bottom: var(--space-2);
     position: relative;

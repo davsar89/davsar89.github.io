@@ -184,11 +184,21 @@
         sections.forEach(s => sectionObserver.observe(s));
     }
 
+    // ----- Footer year -----
+    function updateFooterYear() {
+        const el = document.getElementById('footer-year');
+        if (el) el.textContent = new Date().getFullYear();
+    }
+
     // ----- Init -----
+    // About/CV/Photography are now inline in index.html (no fragment fetch),
+    // so age, reveals, and the photo lightbox are wired up directly here.
     document.addEventListener('DOMContentLoaded', () => {
         observeReveals();
         initNav();
         updateAges();
+        initPhotoLightbox();
+        updateFooterYear();
     });
 
     document.addEventListener('publications:rendered', () => {
@@ -198,13 +208,5 @@
 
     document.addEventListener('cartoons:rendered', () => {
         observeReveals();
-    });
-
-    document.addEventListener('fragment:loaded', (e) => {
-        observeReveals();
-        updateAges();
-        if (e.detail && e.detail.name === 'photography') {
-            initPhotoLightbox();
-        }
     });
 })();

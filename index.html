@@ -5,6 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Personal website of David Sarria, PhD. Researcher in High Energy Atmospheric Physics at the University of Bergen. Terrestrial Gamma-Ray Flashes, gamma-ray glows, and the violent physics of thunderstorms.">
+
+    <!-- Open Graph / social link previews -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://davsar89.github.io/">
+    <meta property="og:title" content="David Sarria, PhD — High Energy Atmospheric Physics">
+    <meta property="og:description" content="Researcher in High Energy Atmospheric Physics at the University of Bergen. Terrestrial Gamma-Ray Flashes, gamma-ray glows, and the violent physics of thunderstorms.">
+    <meta property="og:image" content="https://davsar89.github.io/images/david.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="David Sarria, PhD — High Energy Atmospheric Physics">
+    <meta name="twitter:description" content="Researcher in High Energy Atmospheric Physics at the University of Bergen. Terrestrial Gamma-Ray Flashes, gamma-ray glows, and the violent physics of thunderstorms.">
+    <meta name="twitter:image" content="https://davsar89.github.io/images/david.jpg">
+
     <title>Personal website of David Sarria, PhD</title>
     <link rel="stylesheet" href="css/tailwind.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,10 +34,10 @@
                 <a href="https://hits.sh/davsar89.github.io/" class="visit-badge mr-4" target="_blank" rel="noopener" aria-label="Visit counter">
                     <img src="https://hits.sh/davsar89.github.io.svg?style=flat&label=visits&labelColor=6b7280&color=2c3aa5" alt="Visit counter">
                 </a>
-                <div class="brand">
+                <a href="#" class="brand" aria-label="Back to top">
                     <span class="brand-spark" aria-hidden="true">⚡</span>
                     <span>David Sarria, PhD</span>
-                </div>
+                </a>
                 <button id="nav-toggle" class="md:hidden ml-3 px-3 py-2 rounded focus:outline-none" aria-label="Toggle navigation" aria-controls="nav-menu" aria-expanded="false">
                     ☰
                 </button>
@@ -45,7 +57,7 @@
     <header class="hero">
         <div class="hero-content container mx-auto">
             <p class="hero-eyebrow">Personal website of David Sarria, PhD</p>
-            <h1 class="hero-title"><span class="hero-name">Research in High Energy Atmospheric Physics</span></h1>
+            <h1 class="hero-title">Research in High Energy Atmospheric Physics</h1>
             <p class="hero-tagline">
                 researching👨‍🔬 high energy radiation phenomena⚛ associated with thunderstorms🌩️, from air✈️ and space🛰️
             </p>
@@ -54,11 +66,37 @@
                 <a href="#about" class="btn btn-ghost">About me</a>
             </div>
         </div>
-        <div class="hero-fade" aria-hidden="true"></div>
     </header>
 
     <section id="about" class="py-20 section-night text-left">
-        <div id="about-container" class="reveal"></div>
+        <div id="about-container" class="reveal">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title">About Me</h2>
+
+                <div class="prose-cosmic mt-12">
+                    <p>Welcome. I am a researcher at the <strong>University of Bergen, Norway</strong>, specializing in High Energy Atmospheric Physics. I received my PhD from the University of Toulouse in 2015 and worked as a postdoc at the University of Paris Diderot on the TARANIS spacecraft. I moved to Bergen as a postdoc in 2017, then earned a permanent researcher position in 2020.</p>
+
+                    <p>My research focuses on high-energy phenomena from thunderstorms: <em>Terrestrial Gamma-Ray Flashes</em> (TGFs), <em>Gamma-Ray Glows</em>, and <em>Terrestrial Electron Beams</em>. I also contribute to the calibration of the ASIM instrument on the International Space Station. My latest instrumental focus is the development of a new gamma-ray pinhole camera to resolve the spatial extent of gamma-ray glows for the upcoming 2028 ENLIGHTEN flight campaign.</p>
+
+                    <p>TGFs are intense sub-millisecond bursts of gamma rays from thunderstorms, reaching energies up to 40 MeV. Gamma-Ray Glows are weaker but longer-lived emissions (seconds to minutes). Terrestrial Electron Beams are high-energy electron streams produced alongside TGFs, detectable by satellites like Fermi, ASIM, and AGILE.</p>
+
+                    <p>In 2023, I participated in the <strong>ALOFT flight campaign</strong>, flying at 20 km altitude over Caribbean thunderstorms. We discovered <em>Flickering Gamma-Ray Flashes</em> (FGFs), a new phenomenon published in <strong>Nature (2024)</strong>. FGFs are "the missing link" between glows and TGFs: they last 20-250 ms with multiple pulses, but unlike TGFs, they are radio and optically silent, which is quite puzzling.</p>
+
+                    <p>In my recent 2025 JGR Atmospheres paper, I performed a spectral analysis of 24 FGFs detected during ALOFT, showing they are consistent with the Relativistic Runaway Electron Avalanche process, producing gamma-rays up to 40 MeV at 8-16 km altitude.</p>
+
+                    <p>I also lead the Norwegian Research Council project <strong>"What makes Flickering Gamma-ray Flashes Flicker?"</strong> From 2025-2029, funded with 11.7M NOK, investigating FGF mechanisms through multi-platform observations and computer simulations. My colleagues and I are looking forward to the new ENLIGHTEN flight campaign coming up in 2028.</p>
+
+                    <div class="audio-card">
+                        <img src="images/uk-flag.png" alt="English" style="width: 24px; height: 18px;">
+                        <span class="audio-card-label">Listen (English)</span>
+                        <audio controls>
+                            <source src="audio/about2.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="research" class="py-20 section-storm text-center">
@@ -85,7 +123,119 @@
     <section id="cv" class="py-20 section-night text-left">
         <div class="container mx-auto px-4">
             <h2 class="section-title reveal" style="margin-left: var(--space-4);">Curriculum Vitae</h2>
-            <div id="cv-container" class="reveal"></div>
+            <div id="cv-container" class="reveal">
+                <div class="cv-layout">
+                    <aside class="cv-portrait">
+                        <img src="images/david.jpg" alt="David Sarria" loading="lazy">
+                        <p class="cv-portrait-caption">David Sarria</p>
+                        <div class="cv-meta">
+                            <p><strong>Birthday</strong>10 / 06 / 1989 (age <span data-age-from="1989-06-10">36</span>)</p>
+                            <p><strong>Citizenship</strong>French</p>
+                            <p><strong>Institution</strong>Institute of Physics and Technology, University of Bergen, Norway</p>
+                        </div>
+                    </aside>
+
+                    <div class="cv-body">
+                        <h3 style="font-family: var(--font-display); font-size: 1.6rem; color: var(--text-primary); margin-bottom: var(--space-4);">David Alexandre Stephan SARRIA</h3>
+
+                        <h4>Education</h4>
+                        <ul>
+                            <li>2007: Baccalauréat Scientifique, Lycée Emilie de Rodat (Toulouse, France)</li>
+                            <li>2007 to 2010: Bachelor in Physics, Paul Sabatier University Toulouse III</li>
+                            <li>2010 to 2012: Master 2R Astrophysics, Space Science and Planetary Science. <i>Valedictorian</i>. Paul Sabatier University Toulouse III</li>
+                            <li>2012 to 2015: PhD thesis, Research Institute in Astrophysics and Planetology (IRAP), Toulouse, France</li>
+                        </ul>
+
+                        <h4>Research Experience</h4>
+                        <ul>
+                            <li><strong>29+ articles</strong> in peer-reviewed journals (JGR Atmos. & Space Phys., GRL, JASP, GIMDS, GMD, JSWSC, JATIS, <i>Nature</i>); 7 as first author and 3 as second author.</li>
+                            <li>2012: IRAP / Paul Sabatier (Toulouse). 5-month internship: "Modeling of electromagnetic cascades in the intergalactic environment", under Julien Malzac (IRAP).</li>
+                            <li>2012 to 2015: IRAP / Paul Sabatier. PhD: "Monte Carlo modeling of the transport in the atmosphere of relativistic electrons and gamma photons in relation to Terrestrial Gamma-ray Flashes". Supervisor: Pierre-Louis Blelly. Funding: CNES + DGA.</li>
+                            <li>October 2015 to June 2017: AstroParticule et Cosmologie Institute (Université Paris 7 Diderot). <i>Postdoctoral researcher</i>. XGRE instrument on TARANIS: spectral response, calibration, modeling, data-analysis prep. Supervisors: François Lebrun and Philippe Laurent (APC/CEA).</li>
+                            <li>June 2017 to November 2019: Birkeland Centre for Space Science (University of Bergen). <i>Postdoctoral researcher</i>. ASIM (ESA / ISS), ILDAS, FEGS / ALOFT campaigns; TGFs and gamma-ray glows. Supervisor: Nikolai Østgaard.</li>
+                            <li>November 2019 to 2023: Birkeland Centre for Space Science. <i>Researcher</i>. ASIM and ALOFT 2; TGFs and gamma-ray glows.</li>
+                            <li>2023 onwards: University of Bergen. <i>Researcher</i>. Mostly ALOFT: instrument modeling and calibration, scientific analysis and modeling.</li>
+                        </ul>
+
+                        <h4>Languages</h4>
+                        <ul>
+                            <li>French: native</li>
+                            <li>English: C1/C2 (TOEIC 900+)</li>
+                            <li>Spanish: B1/C2 (mother's native language)</li>
+                            <li>Norwegian: B2 (fiancée's native language)</li>
+                        </ul>
+
+                        <h4>Teaching Experience</h4>
+                        <ul>
+                            <li>2019: Energy-particle propagation in the atmosphere, two research schools:
+                                <ul>
+                                    <li>"Science and INnovation with Thunderstorms", Leiden, Netherlands (1.5h)</li>
+                                    <li>"Atmospheric Electricity and Hard Radiation from Thunderclouds", Bergen, Norway (1h)</li>
+                                </ul>
+                            </li>
+                            <li>2015: Bachelor first year, mathematics, 23h of courses</li>
+                            <li>2013: Bachelor second year, thermodynamics, 12h of exercise supervision</li>
+                            <li>2013: Master first year, plasma physics, 12h of exercise supervision</li>
+                        </ul>
+
+                        <h4>Student Supervision</h4>
+                        <ul>
+                            <li>2016 to 2017: Co-supervisor of 1 Master student (Université Paris 7 Diderot)</li>
+                            <li>2018 to 2024: Co-supervisor of 3 Master students (University of Bergen)</li>
+                            <li>2023 onwards: Co-supervisor of 1 PhD student (University of Bergen)</li>
+                        </ul>
+
+                        <h4>Administrative Experience</h4>
+                        <ul>
+                            <li>2022 onwards: Co-convener, EGU General Assembly Session NH1.5 "Atmospheric Electricity, Thunderstorms, Lightning and their Effects", Vienna, Austria</li>
+                            <li>2022 onwards: Committee coordinator for 2 PhD Defenses (Disputas), University of Bergen</li>
+                            <li>2018 onwards: Committee member, 3 Trial lectures (Prøveforelesning), University of Bergen</li>
+                        </ul>
+
+                        <h4>Contributions to Projects</h4>
+                        <ul>
+                            <li><strong>Project Leader</strong>: FGFF ("What makes flickering gamma-ray flashes flicker?"), Research Council of Norway (2025 to 2029), project 355149.</li>
+                            <li>TARANIS Satellite (CNES):
+                                <ul>
+                                    <li>Modeling of XGRE, IDEE and their environment. Technical and scientific data-analysis preparation.</li>
+                                    <li>XGRE instrument planning, qualification and calibration campaigns.</li>
+                                    <li>Development and testing of the XGRE instrument.</li>
+                                </ul>
+                            </li>
+                            <li>ILDAS air campaign on an A340 (Airbus + University of Eindhoven): modeling of hard-radiation instruments and their environment (GEANT4), scientific data analysis.</li>
+                            <li>FEGS / ALOFT air campaign (2017) on a U2 / ER-2: calibration, scientific data analysis, instrument modeling (GEANT4).</li>
+                            <li>ASIM Space Mission (ESA, ISS, launched April 2018):
+                                <ul>
+                                    <li>Calibration, instrument-response modeling, technical and scientific data analysis.</li>
+                                    <li>Lead on Terrestrial Electron Beam (TEB) work.</li>
+                                </ul>
+                            </li>
+                            <li>ALOFT2 air campaign (2023) on a U2 / ER-2: calibration, technical and scientific data analysis, instrument modeling (GEANT4).</li>
+                            <li>Leader, HPC Project <i>NN9526K</i> on TGF research (Uninett-Sigma2). 500k+ CPU hours, mostly CERN GEANT4-based model runs.</li>
+                        </ul>
+
+                        <h4>Science Outreach</h4>
+                        <ul>
+                            <li>2014: Regional final, "Ma thèse en 180 secondes"</li>
+                            <li>2017: Lecture on "Interstellar travel" at the Cité Universitaire Internationale</li>
+                        </ul>
+
+                        <h4>Awards</h4>
+                        <ul>
+                            <li>2025 to 2029: <strong>FRIPRO Grant</strong>, Research Council of Norway (Project for Groundbreaking Science), 12 million NOK. Project FGFF.</li>
+                            <li>2014: <strong>Outstanding Student Paper Award</strong>, AGU 2014 Fall Meeting</li>
+                            <li>2016: <i>Prix de thèse Paul Sabatier</i>, Académie des Sciences, Inscriptions et Belles Lettres de Toulouse</li>
+                        </ul>
+
+                        <h4>Other</h4>
+                        <ul>
+                            <li>Father of a lovely <span data-age-from="2020-04-01">6</span>-year-old boy</li>
+                        </ul>
+                    </div>
+
+                    <p class="cv-updated">Last updated 02 / 04 / 2025</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -104,7 +254,93 @@
     <section id="photography" class="py-20 section-night text-center">
         <div class="container mx-auto px-4">
             <h2 class="section-title reveal">Photography</h2>
-            <div id="photography-container" class="reveal"></div>
+            <div id="photography-container" class="reveal">
+                <div class="photography-fragment">
+                    <h3 class="mt-10">Landscape</h3>
+                    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="photo-container reveal">
+                            <img src="images/landscape1.jpg" alt="Landscape Photo 1" loading="lazy">
+                            <div class="overlay"><div class="overlay-text">Around Norheimsund, Norway</div></div>
+                        </div>
+                        <div class="photo-container reveal">
+                            <img src="images/landscape2.jpg" alt="Landscape Photo 2" loading="lazy">
+                            <div class="overlay"><div class="overlay-text">Around Norheimsund, Norway</div></div>
+                        </div>
+                        <div class="photo-container reveal">
+                            <img src="images/landscape3.jpg" alt="Landscape Photo 3" loading="lazy">
+                            <div class="overlay"><div class="overlay-text">Around Norheimsund, Norway</div></div>
+                        </div>
+                        <div class="photo-container reveal">
+                            <img src="images/landscape4.jpg" alt="Landscape Photo 4" loading="lazy">
+                            <div class="overlay"><div class="overlay-text">Around Norheimsund, Norway</div></div>
+                        </div>
+                        <div class="photo-container reveal">
+                            <img src="images/landscape5.jpg" alt="Landscape Photo 5" loading="lazy">
+                            <div class="overlay"><div class="overlay-text">Bergen, view from Fløyen</div></div>
+                        </div>
+                        <div class="photo-container reveal">
+                            <img src="images/landscape6.jpg" alt="Landscape Photo 6" loading="lazy">
+                            <div class="overlay"><div class="overlay-text">Fjord cruise, Norway</div></div>
+                        </div>
+                    </div>
+
+                    <h3 class="mt-10">Food</h3>
+                    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="photo-container reveal">
+                            <img src="images/food1.jpg" alt="Food Photo 1" loading="lazy">
+                            <div class="overlay"><div class="overlay-text">Lutefisk, Bryggeloftet & Stuene Restaurant</div></div>
+                        </div>
+                        <div class="photo-container reveal">
+                            <img src="images/food2.jpg" alt="Food Photo 2" loading="lazy">
+                            <div class="overlay"><div class="overlay-text">Reindeer, Bryggeloftet & Stuene Restaurant</div></div>
+                        </div>
+                        <div class="photo-container reveal">
+                            <img src="images/food3.jpg" alt="Food Photo 3" loading="lazy">
+                            <div class="overlay"><div class="overlay-text">Pizza and Wine @ Via Toledo, Wien</div></div>
+                        </div>
+                        <div class="photo-container reveal">
+                            <img src="images/food4.jpg" alt="Food Photo 4" loading="lazy">
+                            <div class="overlay"><div class="overlay-text">Spinach lasagna</div></div>
+                        </div>
+                        <div class="photo-container reveal">
+                            <img src="images/food5.jpg" alt="Food Photo 5" loading="lazy">
+                            <div class="overlay"><div class="overlay-text">Apple strudel</div></div>
+                        </div>
+                        <div class="photo-container reveal">
+                            <img src="images/food6.jpg" alt="Food Photo 6" loading="lazy">
+                            <div class="overlay"><div class="overlay-text">Whale, Bryggeloftet & Stuene Restaurant</div></div>
+                        </div>
+                    </div>
+
+                    <h3 class="mt-10">Animals</h3>
+                    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="photo-container reveal">
+                            <img src="images/animals1.jpg" alt="Animal Photo 1" loading="lazy">
+                            <div class="overlay"><div class="overlay-text">Black bears, Wien Zoo</div></div>
+                        </div>
+                        <div class="photo-container reveal">
+                            <img src="images/animals2.jpg" alt="Animal Photo 2" loading="lazy">
+                            <div class="overlay"><div class="overlay-text">Kitty</div></div>
+                        </div>
+                        <div class="photo-container reveal">
+                            <img src="images/animals3.jpg" alt="Animal Photo 3" loading="lazy">
+                            <div class="overlay"><div class="overlay-text">Sheeps around Norheimsund, Norway</div></div>
+                        </div>
+                        <div class="photo-container reveal">
+                            <img src="images/animals4.jpg" alt="Animal Photo 4" loading="lazy">
+                            <div class="overlay"><div class="overlay-text">Lizard, Wien Zoo</div></div>
+                        </div>
+                        <div class="photo-container reveal">
+                            <img src="images/animals5.jpg" alt="Animal Photo 5" loading="lazy">
+                            <div class="overlay"><div class="overlay-text">Hufsa</div></div>
+                        </div>
+                        <div class="photo-container reveal">
+                            <img src="images/animals6.jpg" alt="Animal Photo 6" loading="lazy">
+                            <div class="overlay"><div class="overlay-text">Polar bear, Wien Zoo</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -138,7 +374,7 @@
                 <a href="https://www.researchgate.net/profile/David-Sarria" class="mx-2">ResearchGate</a>
                 <a href="https://scholar.google.com/citations?user=26kOsmsAAAAJ&hl=en" class="mx-2">Google Scholar</a>
             </div>
-            <p class="mt-4">&copy; 2026 David Sarria. All rights reserved.</p>
+            <p class="mt-4">&copy; <span id="footer-year">2026</span> David Sarria. All rights reserved.</p>
             <p class="footer-tagline">Built with static HTML on GitHub Pages.</p>
         </div>
     </footer>
@@ -149,22 +385,6 @@
     <script src="js/scripts.js"></script>
 
     <script>
-        // Load fragments and dispatch events for downstream wiring
-        function loadFragment(url, targetId, name) {
-            return fetch(url)
-                .then(r => r.text())
-                .then(html => {
-                    const el = document.getElementById(targetId);
-                    if (el) el.innerHTML = html;
-                    document.dispatchEvent(new CustomEvent('fragment:loaded', { detail: { name } }));
-                })
-                .catch(err => console.error('Error loading', url, err));
-        }
-
-        loadFragment('about.html', 'about-container', 'about');
-        loadFragment('cv.html', 'cv-container', 'cv');
-        loadFragment('photography.html', 'photography-container', 'photography');
-
         // Mobile nav toggle
         const navToggle = document.getElementById('nav-toggle');
         const navMenu = document.getElementById('nav-menu');
