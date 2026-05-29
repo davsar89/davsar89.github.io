@@ -732,6 +732,14 @@ section .text-gray-500 {
     font-weight: 600;
 }
 
+.cv-updated {
+    margin-top: var(--space-6);
+    font-size: .78rem;
+    color: var(--text-tertiary);
+    text-align: right;
+    font-style: italic;
+}
+
 /* =========================================================================
    Research articles
    ========================================================================= */
