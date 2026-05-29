@@ -137,6 +137,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     slidesLink.className = 'article-link';
                     slidesLink.download = 'masters_slides_SARRIA_DAVID.pdf';
                     article.appendChild(slidesLink);
+
+                    const egmfLink = document.createElement('a');
+                    egmfLink.href = "pdf/Calculs_EGMF_propagation3D.pdf";
+                    egmfLink.textContent = 'extension with EGMF 3D calculations';
+                    egmfLink.className = 'article-link';
+                    egmfLink.download = 'Calculs_EGMF_propagation3D.pdf';
+                    article.appendChild(egmfLink);
                 }
 
                 if (isPhDThesis) {

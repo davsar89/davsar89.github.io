@@ -163,6 +163,15 @@
         onScroll();
         window.addEventListener('scroll', onScroll, { passive: true });
 
+        // Brand ("David Sarria, PhD") scrolls back to the top of the page
+        const brand = nav.querySelector('a.brand');
+        if (brand) {
+            brand.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+            });
+        }
+
         if (!links.length) return;
         const sections = Array.from(links)
             .map(a => document.querySelector(a.getAttribute('href')))
