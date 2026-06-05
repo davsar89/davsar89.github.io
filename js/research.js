@@ -144,6 +144,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     egmfLink.className = 'article-link';
                     egmfLink.download = 'Calculs_EGMF_propagation3D.pdf';
                     article.appendChild(egmfLink);
+
+                    const codeLink = document.createElement('a');
+                    codeLink.href = "pdf/cascados_code_bundle.zip";
+                    codeLink.textContent = 'Download associated code';
+                    codeLink.className = 'article-link';
+                    codeLink.download = 'cascados_code_bundle.zip';
+                    article.appendChild(codeLink);
                 }
 
                 if (isPhDThesis) {
