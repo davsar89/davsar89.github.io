@@ -59,8 +59,15 @@
             <p class="hero-eyebrow">Personal website of David Sarria, PhD</p>
             <h1 class="hero-title">Research in High Energy Atmospheric Physics</h1>
             <p class="hero-tagline">
-                researching👨‍🔬 high energy radiation phenomena⚛ associated with thunderstorms🌩️, from air✈️ and space🛰️
+                Studying the high-energy radiation produced by thunderstorms,
+                observed from aircraft and spacecraft.
             </p>
+            <ul class="hero-chips" aria-label="Research topics">
+                <li class="chip">🌩️ Thunderstorms</li>
+                <li class="chip">⚛️ Gamma rays</li>
+                <li class="chip">✈️ ALOFT campaign</li>
+                <li class="chip">🛰️ ASIM / ISS</li>
+            </ul>
             <div class="hero-cta">
                 <a href="#research" class="btn btn-primary">Publications</a>
                 <a href="#about" class="btn btn-ghost">About me</a>
@@ -71,9 +78,32 @@
     <section id="about" class="py-20 section-night text-left">
         <div id="about-container" class="reveal">
             <div class="container mx-auto px-4">
+                <span class="section-eyebrow">01 · Profile</span>
                 <h2 class="section-title">About Me</h2>
 
-                <div class="prose-cosmic mt-12">
+                <div class="about-layout">
+                <aside class="about-glance">
+                    <h3>At a glance</h3>
+                    <dl>
+                        <div>
+                            <dt>Position</dt>
+                            <dd>Researcher, University of Bergen, Norway</dd>
+                        </div>
+                        <div>
+                            <dt>Field</dt>
+                            <dd>High Energy Atmospheric Physics</dd>
+                        </div>
+                        <div>
+                            <dt>Focus</dt>
+                            <dd>Terrestrial Gamma-Ray Flashes · Gamma-Ray Glows · Flickering Gamma-Ray Flashes · Terrestrial Electron Beams</dd>
+                        </div>
+                        <div>
+                            <dt>Current project</dt>
+                            <dd>FGFF, Research Council of Norway (2025–2029) · ENLIGHTEN campaign 2028</dd>
+                        </div>
+                    </dl>
+                </aside>
+                <div class="prose-cosmic">
                     <p>Welcome. I am a researcher at the <strong>University of Bergen, Norway</strong>, specializing in High Energy Atmospheric Physics. I received my PhD from the University of Toulouse in 2015 and worked as a postdoc at the University of Paris Diderot on the TARANIS spacecraft. I moved to Bergen as a postdoc in 2017, then earned a permanent researcher position in 2020.</p>
 
                     <p>My research focuses on high-energy phenomena from thunderstorms: <em>Terrestrial Gamma-Ray Flashes</em> (TGFs), <em>Gamma-Ray Glows</em>, and <em>Terrestrial Electron Beams</em>. I also contribute to the calibration of the ASIM instrument on the International Space Station. My latest instrumental focus is the development of a new gamma-ray pinhole camera to resolve the spatial extent of gamma-ray glows for the upcoming 2028 ENLIGHTEN flight campaign.</p>
@@ -95,12 +125,14 @@
                         </audio>
                     </div>
                 </div>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="research" class="py-20 section-storm text-center">
         <div class="container mx-auto px-4">
+            <span class="section-eyebrow reveal">02 · Publications</span>
             <h2 class="section-title reveal">Research Articles</h2>
             <div class="reveal">
                 <div class="research-controls">
@@ -122,6 +154,7 @@
 
     <section id="cv" class="py-20 section-night text-left">
         <div class="container mx-auto px-4">
+            <span class="section-eyebrow reveal" style="margin-left: var(--space-4);">03 · Career</span>
             <h2 class="section-title reveal" style="margin-left: var(--space-4);">Curriculum Vitae</h2>
             <div id="cv-container" class="reveal">
                 <div class="cv-layout">
@@ -241,18 +274,27 @@
 
     <section id="codes" class="codes-section section-storm text-center">
         <div class="container mx-auto px-4 reveal">
+            <span class="section-eyebrow">04 · Software</span>
             <h2 class="section-title">Codes</h2>
-            <p class="mt-6">
-                See my
-                <a href="https://github.com/davsar89/">GitHub profile</a>
-                and my
-                <a href="https://zenodo.org/communities/heap/search?page=1&size=20&sort=publication_date">Zenodo repositories</a>.
-            </p>
+            <p class="mt-6">Simulation and analysis codes behind the research articles.</p>
+            <div class="codes-cards">
+                <a href="https://github.com/davsar89/" class="code-card" target="_blank" rel="noopener">
+                    <span class="code-card-title">🖥️ GitHub</span>
+                    <span class="code-card-desc">Source code for simulations, instrument modeling, and data analysis tools.</span>
+                    <span class="code-card-cta">github.com/davsar89 →</span>
+                </a>
+                <a href="https://zenodo.org/communities/heap/search?page=1&size=20&sort=publication_date" class="code-card" target="_blank" rel="noopener">
+                    <span class="code-card-title">📦 Zenodo</span>
+                    <span class="code-card-desc">Archived, citable code and data bundles linked to publications.</span>
+                    <span class="code-card-cta">zenodo.org/communities/heap →</span>
+                </a>
+            </div>
         </div>
     </section>
 
     <section id="photography" class="py-20 section-night text-center">
         <div class="container mx-auto px-4">
+            <span class="section-eyebrow reveal">05 · Gallery</span>
             <h2 class="section-title reveal">Photography</h2>
             <div id="photography-container" class="reveal">
                 <div class="photography-fragment">
@@ -346,6 +388,7 @@
 
     <section id="cartoons" class="py-20 section-storm text-center">
         <div class="container mx-auto px-4">
+            <span class="section-eyebrow reveal">06 · Illustrations</span>
             <h2 class="section-title reveal">Cartoons</h2>
             <p class="mt-4 reveal">Illustrations created for the research articles.</p>
             <div id="cartoons-grid" class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
@@ -355,29 +398,34 @@
 
     <section id="contact" class="py-20 section-night text-center">
         <div class="container mx-auto px-4 reveal">
+            <span class="section-eyebrow">07 · Get in touch</span>
             <h2 class="section-title">Contact</h2>
-            <p class="mt-6">
-                Institute of Physics and Technology (IFT), University of Bergen<br>
-                Allegaten 55, 5007 Bergen, Norway<br>
-                E-mail: <img src="images/email.png" alt="Email Address" class="inline">
-            </p>
+            <div class="contact-card">
+                <p>
+                    Institute of Physics and Technology (IFT), University of Bergen<br>
+                    Allegaten 55, 5007 Bergen, Norway<br>
+                    E-mail: <img src="images/email.png" alt="Email Address" class="inline">
+                </p>
+            </div>
         </div>
     </section>
 
     <footer>
         <div class="container mx-auto text-center px-4">
-            <div>
-                <a href="https://fr.linkedin.com/in/david-sarria-0bb8625a" class="mx-2">LinkedIn</a>
-                <a href="https://www.facebook.com/Djienne/" class="mx-2">Facebook</a>
-                <a href="https://github.com/davsar89/" class="mx-2">GitHub</a>
-                <a href="https://gitlab.com/dsarria" class="mx-2">GitLab</a>
-                <a href="https://www.researchgate.net/profile/David-Sarria" class="mx-2">ResearchGate</a>
-                <a href="https://scholar.google.com/citations?user=26kOsmsAAAAJ&hl=en" class="mx-2">Google Scholar</a>
+            <div class="footer-social">
+                <a href="https://fr.linkedin.com/in/david-sarria-0bb8625a">LinkedIn</a>
+                <a href="https://www.facebook.com/Djienne/">Facebook</a>
+                <a href="https://github.com/davsar89/">GitHub</a>
+                <a href="https://gitlab.com/dsarria">GitLab</a>
+                <a href="https://www.researchgate.net/profile/David-Sarria">ResearchGate</a>
+                <a href="https://scholar.google.com/citations?user=26kOsmsAAAAJ&hl=en">Google Scholar</a>
             </div>
             <p class="mt-4">&copy; <span id="footer-year">2026</span> David Sarria. All rights reserved.</p>
             <p class="footer-tagline">Built with static HTML on GitHub Pages.</p>
         </div>
     </footer>
+
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">↑</button>
 
     <script src="js/bibtex_js.js"></script>
     <script src="js/research.js"></script>

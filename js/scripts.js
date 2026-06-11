@@ -157,11 +157,21 @@
         const links = document.querySelectorAll('#nav-menu a[href^="#"]');
         if (!nav) return;
 
+        const backToTop = document.getElementById('back-to-top');
         const onScroll = () => {
             nav.classList.toggle('is-scrolled', window.scrollY > 60);
+            if (backToTop) {
+                backToTop.classList.toggle('is-visible', window.scrollY > 600);
+            }
         };
         onScroll();
         window.addEventListener('scroll', onScroll, { passive: true });
+
+        if (backToTop) {
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+            });
+        }
 
         // Brand ("David Sarria, PhD") scrolls back to the top of the page
         const brand = nav.querySelector('a.brand');
