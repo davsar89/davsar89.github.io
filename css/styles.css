@@ -517,6 +517,8 @@ section .text-gray-500 {
     .about-layout .about-glance {
         grid-column: 2;
         grid-row: 1;
+        position: sticky;
+        top: 90px;
     }
 
     .about-layout .prose-cosmic {
@@ -533,8 +535,6 @@ section .text-gray-500 {
     border-radius: var(--radius-sm);
     padding: var(--space-6);
     box-shadow: none;
-    position: sticky;
-    top: 90px;
 }
 
 .about-glance h3 {
