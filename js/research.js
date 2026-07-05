@@ -94,14 +94,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 article.dataset.year = year;
                 article.dataset.search = `${title} ${authors} ${journal}`.toLowerCase();
 
+                // Compact citation line: authors (own name bolded), venue in italics, year.
+                const authorsHtml = authors.replace(/Sarria, D\./g, '<strong>Sarria, D.</strong>');
+                let venue = journal;
+                if (entry.IS_MASTERS_THESIS) venue = "Master's thesis";
+                else if (isPhDThesis) venue = 'PhD thesis';
+                const citeParts = [authorsHtml];
+                if (venue && venue !== 'No Journal') citeParts.push(`<em>${venue}</em>`);
+                citeParts.push(year);
+
                 let articleContent = `
                     <div class="flex items-baseline">
                         <span class="article-number">[${articleNumber}]</span>
                         <h3 class="article-title">${title}</h3>
                     </div>
-                    <p class="article-authors"><strong>Authors:</strong> ${authors}</p>
-                    <p class="article-journal"><strong>Journal:</strong> ${journal}</p>
-                    <p class="article-year"><strong>Year:</strong> ${year}</p>
+                    <p class="article-cite">${citeParts.join(' · ')}</p>
                 `;
 
                 if (entry.IS_MASTERS_THESIS || isPhDThesis) {

@@ -237,7 +237,7 @@ a:hover {
 
 .hero {
     position: relative;
-    min-height: 64vh;
+    min-height: 50vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -293,7 +293,7 @@ a:hover {
     position: relative;
     z-index: 2;
     text-align: center;
-    padding: var(--space-16) var(--space-4);
+    padding: var(--space-12) var(--space-4);
     max-width: 880px;
 }
 
@@ -916,22 +916,21 @@ section .text-gray-500 {
     flex: 1;
 }
 
-.article-authors,
-.article-journal,
-.article-year,
+.article-cite,
 .article-language {
     font-size: 0.92rem;
     color: var(--text-secondary);
     margin-bottom: 0.2rem;
 }
 
-.article-authors strong,
-.article-journal strong,
-.article-year strong,
+.article-cite strong,
 .article-language strong {
     color: var(--text-primary);
-    font-family: var(--font-display);
     font-weight: 600;
+}
+
+.article-cite em {
+    color: var(--text-secondary);
 }
 
 .article-link {
@@ -1554,7 +1553,7 @@ footer a:hover {
 
     /* Hero compresses */
     .hero {
-        min-height: 56vh;
+        min-height: 44vh;
         background-size: 18px 18px;
     }
 

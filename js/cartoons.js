@@ -114,12 +114,13 @@ async function renderCartoons() {
             const baseName = deriveBaseName(entry);
             const cartoon = await findCartoon(baseName);
             if (!cartoon) return null;
+            const authorList = entry.AUTHOR ? entry.AUTHOR.split(' and ') : [];
             return {
                 path: cartoon.path,
                 id: cartoon.idBase,
                 title: entry.TITLE || baseName,
                 year: entry.YEAR || '',
-                authors: entry.AUTHOR ? entry.AUTHOR.split(' and ').join(', ') : ''
+                authors: authorList.length > 2 ? `${authorList[0]}, et al.` : authorList.join(', ')
             };
         }))).filter(Boolean);
 
