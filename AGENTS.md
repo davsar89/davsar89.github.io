@@ -1,14 +1,13 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-- `index.html`: Entry point that loads About, CV, Research, Photography, Cartoons, and Contact sections.
-- `about.html`, `cv.html`, `photography.html`: Section fragments injected into `index.html`.
+- `index.html`: The single page; About, CV, Research, Photography, Cartoons, and Contact sections are all inlined.
 - `data/research.bib`: BibTeX source for publications; keys drive PDF/cartoon lookup.
 - `pdf/`: Publication PDFs named `<bibtexkey>.pdf`.
 - `cartoons/`: JPG cartoons named `<bibtexkey>.jpg` (case-insensitive lookup).
 - `js/research.js`: Renders publications, links (DOI/URL), PDFs, slides, and “View cartoon” anchors.
 - `js/cartoons.js`: Builds the cartoons grid and modal viewer.
-- `css/styles.css`: Custom styles complementing `css/tailwind.min.css`.
+- `css/styles.css`: Custom styles complementing `css/tailwind-lite.css` (Tailwind v2 preflight + only the utilities the site uses; when adding new Tailwind classes to the HTML/JS, add their definitions there too).
 
 ## Build, Test, and Development Commands
 - Local view: `python -m http.server 8000` (serve the repo root) and open `http://localhost:8000/index.html`.

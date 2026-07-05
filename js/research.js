@@ -1,36 +1,55 @@
-document.addEventListener('DOMContentLoaded', function() {
-    fetch('data/research.bib')
+/* Shared publication data: one fetch/parse of research.bib and one set of
+   cartoon HEAD probes (cached, parallel) reused by research.js and cartoons.js. */
+window.__pubData = window.__pubData || (() => {
+    const entriesPromise = fetch('data/research.bib')
         .then(response => response.text())
         .then(data => {
             const bibtex = new BibtexParser();
             bibtex.setInput(data);
             bibtex.bibtex();
-            const entries = bibtex.getEntries();
+            return Object.values(bibtex.getEntries());
+        });
 
-            const cartoonExists = (path) => fetch(path, { method: 'HEAD' })
-                .then(response => response.ok)
-                .catch(() => false);
+    const fileExists = (path) => fetch(path, { method: 'HEAD' })
+        .then(response => response.ok)
+        .catch(() => false);
 
-            const findCartoon = async (baseName) => {
-                if (!baseName) return null;
+    const cartoonCache = new Map();
+    const findCartoon = (baseName) => {
+        if (!baseName) return Promise.resolve(null);
+        if (!cartoonCache.has(baseName)) {
+            cartoonCache.set(baseName, (async () => {
                 const candidates = Array.from(new Set([baseName, baseName.toLowerCase()]));
-                for (const candidate of candidates) {
-                    const path = `cartoons/${candidate}.jpg`;
-                    if (await cartoonExists(path)) {
-                        return { path, idBase: candidate };
-                    }
-                }
-                return null;
-            };
+                const hits = await Promise.all(
+                    candidates.map(candidate => fileExists(`cartoons/${candidate}.jpg`))
+                );
+                const index = hits.indexOf(true);
+                if (index === -1) return null;
+                return { path: `cartoons/${candidates[index]}.jpg`, idBase: candidates[index] };
+            })());
+        }
+        return cartoonCache.get(baseName);
+    };
+
+    return {
+        entries: () => entriesPromise.then(list => list.slice()),
+        findCartoon
+    };
+})();
+
+document.addEventListener('DOMContentLoaded', function() {
+    window.__pubData.entries()
+        .then(entries => {
+            const findCartoon = window.__pubData.findCartoon;
 
             const articlesContainer = document.getElementById('articles');
             if (!articlesContainer) return;
 
-            const totalArticles = Object.keys(entries).length + 1; // +1 for masters thesis
+            const totalArticles = entries.length + 1; // +1 for masters thesis
             let articleNumber = totalArticles;
             let currentYear = null;
 
-            const sortedEntries = Object.values(entries).sort((a, b) => b.YEAR - a.YEAR);
+            const sortedEntries = entries.sort((a, b) => b.YEAR - a.YEAR);
 
             // Add master's thesis
             const mastersThesis = {
@@ -102,14 +121,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     article.appendChild(urlLink);
                 }
 
-                if (!['marisaldi2024Highly', 'ostgaard2024Flickering'].includes(bibtexKey)) {
-                    const pdfLink = document.createElement('a');
-                    pdfLink.href = entry.IS_MASTERS_THESIS ? entry.URL : `pdf/${bibtexKey}.pdf`;
-                    pdfLink.textContent = 'Download PDF';
-                    pdfLink.className = 'article-link';
-                    pdfLink.download = entry.IS_MASTERS_THESIS ? 'Masters_thesis_SARRIA_DAVID_irap.pdf' : `${bibtexKey}.pdf`;
-                    article.appendChild(pdfLink);
-                }
+                const pdfLink = document.createElement('a');
+                pdfLink.href = entry.IS_MASTERS_THESIS ? entry.URL : `pdf/${bibtexKey}.pdf`;
+                pdfLink.textContent = 'Download PDF';
+                pdfLink.className = 'article-link';
+                pdfLink.download = entry.IS_MASTERS_THESIS ? 'Masters_thesis_SARRIA_DAVID_irap.pdf' : `${bibtexKey}.pdf`;
+                article.appendChild(pdfLink);
 
                 if (cartoonBase) {
                     findCartoon(cartoonBase).then((cartoon) => {

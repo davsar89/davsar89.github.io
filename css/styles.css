@@ -18,7 +18,7 @@
     /* Text */
     --text-primary: #111827;
     --text-secondary: #4b5563;
-    --text-muted: #8b94a3;
+    --text-muted: #626d7d; /* >=4.5:1 (WCAG AA) on all site backgrounds */
 
     /* Single restrained accent */
     --accent: #2c3aa5;
@@ -1405,6 +1405,16 @@ section .text-gray-500 {
 
 .contact-card p {
     margin: 0;
+}
+
+.contact-card a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.contact-card a:hover {
+    color: var(--accent-hover);
 }
 
 /* =========================================================================

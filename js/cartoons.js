@@ -1,6 +1,7 @@
 /* Shared image lightbox factory used by cartoons and photo gallery. */
 function createLightbox() {
     let modal = null;
+    let lastFocused = null;
 
     function ensureModal() {
         if (modal) return modal;
@@ -25,6 +26,10 @@ function createLightbox() {
         const close = () => {
             modal.classList.add('hidden');
             document.body.style.overflow = '';
+            if (lastFocused && typeof lastFocused.focus === 'function') {
+                lastFocused.focus();
+            }
+            lastFocused = null;
         };
 
         modal.addEventListener('click', (event) => {
@@ -57,6 +62,8 @@ function createLightbox() {
 
         m.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
+        lastFocused = document.activeElement;
+        m.querySelector('.image-lightbox-close').focus();
     }
 
     return { open };
@@ -70,35 +77,8 @@ async function renderCartoons() {
     if (!grid) return;
 
     try {
-        const fileExists = async (path) => {
-            try {
-                const response = await fetch(path, { method: 'HEAD' });
-                return response.ok;
-            } catch (error) {
-                return false;
-            }
-        };
-
-        const findCartoon = async (baseName) => {
-            if (!baseName) return null;
-            const candidates = Array.from(new Set([baseName, baseName.toLowerCase()]));
-            for (const candidate of candidates) {
-                const path = `cartoons/${candidate}.jpg`;
-                if (await fileExists(path)) {
-                    return { path, idBase: candidate };
-                }
-            }
-            return null;
-        };
-
-        const parseBibtex = async () => {
-            const response = await fetch('data/research.bib');
-            const text = await response.text();
-            const parser = new BibtexParser();
-            parser.setInput(text);
-            parser.bibtex();
-            return Object.values(parser.getEntries());
-        };
+        // Shared with research.js: single bib fetch + cached parallel HEAD probes.
+        const { entries: getEntries, findCartoon } = window.__pubData;
 
         const deriveBaseName = (entry) => {
             if (entry.BIBTEXKEY) return entry.BIBTEXKEY;
@@ -109,7 +89,7 @@ async function renderCartoons() {
             return null;
         };
 
-        const entries = await parseBibtex();
+        const entries = await getEntries();
 
         entries.push({
             TITLE: "Modélisation des cascades électromagnétiques dans le milieu intergalactique",
@@ -121,25 +101,27 @@ async function renderCartoons() {
         entries.sort((a, b) => (b.YEAR || 0) - (a.YEAR || 0));
 
         const seen = new Set();
-        const cartoons = [];
-
-        for (const entry of entries) {
+        const uniqueEntries = entries.filter((entry) => {
             const baseName = deriveBaseName(entry);
             const dedupeKey = (baseName || '').toLowerCase();
-            if (!baseName || seen.has(dedupeKey)) continue;
+            if (!baseName || seen.has(dedupeKey)) return false;
             seen.add(dedupeKey);
+            return true;
+        });
 
+        // Probe all entries in parallel, keeping the sorted order.
+        const cartoons = (await Promise.all(uniqueEntries.map(async (entry) => {
+            const baseName = deriveBaseName(entry);
             const cartoon = await findCartoon(baseName);
-            if (!cartoon) continue;
-
-            cartoons.push({
+            if (!cartoon) return null;
+            return {
                 path: cartoon.path,
                 id: cartoon.idBase,
                 title: entry.TITLE || baseName,
                 year: entry.YEAR || '',
                 authors: entry.AUTHOR ? entry.AUTHOR.split(' and ').join(', ') : ''
-            });
-        }
+            };
+        }))).filter(Boolean);
 
         if (cartoons.length === 0) {
             if (emptyState) emptyState.classList.remove('hidden');

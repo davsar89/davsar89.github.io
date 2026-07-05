@@ -4,15 +4,14 @@ This repository contains the source code for David Sarria's personal website, sh
 
 ## Structure
 
-- `index.html`: Main page; loads about, CV, research list, photography, and cartoons sections
-- `about.html`, `cv.html`, `photography.html`: Content fragments injected into the main page
+- `index.html`: The single page; About, CV, research list, photography, cartoons, and contact sections are all inlined
 - `data/research.bib`: BibTeX source for publications
 - `pdf/`: PDF files for publications (named `<bibtexkey>.pdf`)
 - `cartoons/`: JPG cartoons for publications (named `<bibtexkey>.jpg`; case-insensitive lookup)
 - `js/research.js`: Renders research entries from the BibTeX file with DOI/URL, PDF, slides, and cartoon links
 - `js/cartoons.js`: Builds the cartoons gallery and modal viewer
 - `js/bibtex_js.js`: Lightweight BibTeX parser
-- `css/styles.css`: Custom styles (supplements Tailwind utility classes)
+- `css/styles.css`: Custom styles (supplements the utility classes in `css/tailwind-lite.css`)
 
 ## Features
 
@@ -30,12 +29,12 @@ This repository contains the source code for David Sarria's personal website, sh
 ## Updating Content
 
 - Edit `data/research.bib` to update publications. PDFs should be placed in `pdf/` and named `<bibtexkey>.pdf`. Cartoons go in `cartoons/` named `<bibtexkey>.jpg`.
-- Update `about.html`, `cv.html`, and `photography.html` to adjust static sections.
+- Edit the corresponding sections of `index.html` to adjust static content (About, CV, Photography, Contact).
 - Adjust styles in `css/styles.css` as needed.
 
 ## Dependencies
 
-- Tailwind CSS (prebuilt file in `css/tailwind.min.css`)
+- `css/tailwind-lite.css` (Tailwind v2 preflight + only the utility classes the site uses; no build step)
 - `js/bibtex_js.js` (included locally for BibTeX parsing)
 
 ## License

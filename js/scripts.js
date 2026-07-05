@@ -203,6 +203,17 @@
         sections.forEach(s => sectionObserver.observe(s));
     }
 
+    // ----- Contact email (assembled at runtime to stay scrape-resistant) -----
+    function initContactEmail() {
+        const holder = document.getElementById('contact-email');
+        if (!holder) return;
+        const address = ['david', '.', 'sarria'].join('') + '@' + ['uib', 'no'].join('.');
+        const link = document.createElement('a');
+        link.href = 'mailto:' + address;
+        link.textContent = address;
+        holder.prepend(link);
+    }
+
     // ----- Footer year -----
     function updateFooterYear() {
         const el = document.getElementById('footer-year');
@@ -217,6 +228,7 @@
         initNav();
         updateAges();
         initPhotoLightbox();
+        initContactEmail();
         updateFooterYear();
     });
 
