@@ -170,10 +170,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     article.appendChild(egmfLink);
 
                     const codeLink = document.createElement('a');
-                    codeLink.href = "pdf/cascados_code_bundle.zip";
+                    codeLink.href = "https://github.com/davsar89/cascades";
                     codeLink.textContent = 'Download associated code';
                     codeLink.className = 'article-link';
-                    codeLink.download = 'cascados_code_bundle.zip';
+                    codeLink.target = '_blank';
+                    codeLink.rel = 'noopener';
                     article.appendChild(codeLink);
                 }
 
